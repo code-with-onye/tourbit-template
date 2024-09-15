@@ -1,6 +1,30 @@
+"use client";
+import FeatureTour from "@/components/FeatureToure2";
+// import FeatureTour from "@/components/FeatureTour";
 import Image from "next/image";
+import { useState } from "react";
 
 export default function Home() {
+  const [showTour, setShowTour] = useState(true);
+
+  const tourSteps = [
+    {
+      selector: "#feature1",
+      title: "Feature 1",
+      content: "This is our amazing first feature.",
+    },
+    {
+      selector: "#feature2",
+      title: "Feature 2",
+      content: "Check out this awesome second feature.",
+    },
+    {
+      selector: "#feature3",
+      title: "Feature 3",
+      content: "Don't miss our incredible third feature.",
+    },
+  ];
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
@@ -12,7 +36,10 @@ export default function Home() {
           height={38}
           priority
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+        <ol
+          className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]"
+          id="feature1"
+        >
           <li className="mb-2">
             Get started by editing{" "}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
@@ -23,7 +50,10 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
+        <div
+          className="flex gap-4 items-center flex-col sm:flex-row"
+          id="feature2"
+        >
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -49,7 +79,10 @@ export default function Home() {
           </a>
         </div>
       </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
+      <footer
+        className="row-start-3 flex gap-6 flex-wrap items-center justify-center"
+        id="feature3"
+      >
         <a
           className="flex items-center gap-2 hover:underline hover:underline-offset-4"
           href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
@@ -96,6 +129,9 @@ export default function Home() {
           Go to nextjs.org →
         </a>
       </footer>
+      {showTour && (
+        <FeatureTour steps={tourSteps} onComplete={() => setShowTour(false)} />
+      )}
     </div>
   );
 }
