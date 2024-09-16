@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useCallback } from "react";
-// import { ChevronRight, ChevronLeft, X } from "lucide-react";
 
 interface TourStep {
   selector: string;
