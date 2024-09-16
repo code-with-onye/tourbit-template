@@ -4,7 +4,6 @@ import { useKeyboardNavigation } from "@/hooks/useKeyboardNavigation";
 import { usePositioning } from "@/hooks/usePositioning";
 import { FeatureTourProps } from "@/types";
 import { TourPopup } from "./ShadcnTourPopup";
-// import { TourPopup } from "./TourPopup";
 
 const FeatureTour: React.FC<FeatureTourProps> = ({
   steps,
